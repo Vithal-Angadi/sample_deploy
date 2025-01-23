@@ -1,0 +1,14 @@
+- name: Add Helm repositories
+  community.kubernetes.helm_repository:
+    name: "{{ item.name }}"
+    repo_url: "{{ item.repo }}"
+  loop: "{{ charts }}"
+
+- name: Deploy Helm charts
+  community.kubernetes.helm:
+    name: "{{ item.name }}"
+    chart_ref: "{{ item.chart }}"
+    release_namespace: "{{ k8s_namespace }}"
+    chart_version: "{{ item.version }}"
+    values: "{{ lookup('template', 'templates/' + item.values_template) }}"
+  loop: "{{ charts }}"

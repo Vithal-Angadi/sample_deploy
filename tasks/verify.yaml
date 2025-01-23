@@ -1,0 +1,3 @@
+- name: Verify deployments
+  ansible.builtin.command:
+    cmd: "python3 verify_deployment.py"

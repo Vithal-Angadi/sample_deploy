@@ -1,0 +1,9 @@
+k8s_namespace: "default"
+
+charts:
+  - name: "cnpg"
+    chart: "cloudnative-pg"
+    version: "1.18.0"
+    repo: "https://cloudnative-pg.github.io/charts"
+    values_template: "cnpg-values.yaml.j2"
+ 

@@ -1,0 +1,12 @@
+- name: Install ArgoCD
+  kubernetes.core.k8s:
+    state: present
+    namespace: argocd
+    definition: |
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name: argocd
+---
+- name: Apply ArgoCD manifests
+  command: kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml

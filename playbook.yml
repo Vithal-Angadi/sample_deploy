@@ -1,0 +1,8 @@
+- name: Kubernetes Deployment
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Deploy Kubernetes components
+      include_tasks: tasks/deploy.yaml
+
+   
